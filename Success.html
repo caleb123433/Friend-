@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Favour Miss Shawty💜</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    min-height:100vh;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,#2d0a4e,#7b2ff7,#c084fc,#ff2e7e);
+    background-size:300% 300%;animation:bg 8s ease infinite;
+    font-family:'Segoe UI',Arial,sans-serif;text-align:center;overflow:hidden;padding:15px;
+  }
+  @keyframes bg{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+  .card{
+    background:white;width:100%;max-width:400px;padding:30px 22px;border-radius:28px;
+    box-shadow:0 20px 50px rgba(0,0,0,.35);animation:pop .5s ease;
+  }
+  @keyframes pop{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
+  h1{color:#7b2ff7;font-size:27px;line-height:1.3}
+  p{color:#444;font-size:17px;line-height:1.6;margin-top:10px}
+  .big{font-size:85px;margin:12px 0;cursor:pointer;display:inline-block;animation:bounce 1.2s infinite}
+  @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+  .btn{border:none;padding:14px 28px;border-radius:50px;font-size:16px;font-weight:bold;cursor:pointer;margin:8px 4px}
+  .yes{background:#7b2ff7;color:white;box-shadow:0 5px 15px rgba(123,47,247,.4)}
+  .no{background:#eee;color:#333}
+  #page2,#page3,#page4,#page5{display:none}
+  .reason{background:#f3e8ff;padding:14px;border-radius:18px;margin:12px 0;font-weight:700;color:#6d28d9;font-size:17px;border:2px solid #e9d5ff}
+  .confetti{position:fixed;top:-20px;font-size:26px;animation:fall 3.5s linear forwards;z-index:999;pointer-events:none}
+  @keyframes fall{to{top:110vh;transform:rotate(360deg)}}
+  .footer{font-size:13px;color:#999;margin-top:15px}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div class="card" id="page1">
+  <h1>Hey, Favour! 🖤</h1>
+  <p>I made this website just for YOU.<br>Because you deserve to be appreciated. 🎈</p>
+  <div class="big">🎁</div><br>
+  <button class="btn yes" onclick="next(2)">Open it 😍</button><br>
+  <button class="btn no" onclick="moveNo(this)">No 😒</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="card" id="page2">
+  <div class="big">💜</div>
+  <h1>Favour, do you know...</h1>
+ <pstyle="font-size:19px;font-weight:bold">How much I appreciate you?</p>
+  <br>
+  <button class="btn yes" onclick="next(3)">Show me ❤️</button><br>
+  <button class="btn no" onclick="moveNo(this)">Not really 🥺</button>
+</div>
+
+<!-- PAGE 3 - 3 REASONS -->
+<div class="card" id="page3">
+  <h1>3 Reasons Why You're The Best 🩸</h1>
+  <p>Just for you, Favour:</p>
+  <div class="reason">1. 🖤 You are so kind and caring, you always check on me</div>
+  <div class="reason">2. 😍 You make everything fun, even boring days feel special</div>
+  <div class="reason">3. ❤️ You are loyal, real and one in a million. I’m lucky to have you</div>
+  <button class="btn yes" onclick="next(4)">Next 🎈</button>
+</div>
+
+<!-- PAGE 4 - FINAL QUESTION -->
+<div class="card" id="page4">
+  <div class="big">🥺💜</div>
+  <h1>One last question, Favour...</h1>
+  <p style="font-size:20px;font-weight:bold">Will you be my best friend forever?</p>
+  <br>
+  <button class="btn yes" onclick="next(5)">YES! Forever ❤️</button><br>
+  <button class="btn no" onclick="moveNo(this)">No 😭</button>
+</div>
+
+<!-- PAGE 5 - FINALE -->
+<div class="card" id="page5">
+  <div class="big">🥳</div>
+  <h1>I KNEW IT! 🎈</h1>
+  <p>Dear <b>Favour one and only shawty</b>,<br><br>
+  Thank you for being YOU. 🖤<br>
+  Thank you for your smile, your vibe, your heart. 😍<br>
+  This is just a small appreciation for a big part of my life. ❤️<br><br>
+  You are loved, you are appreciated, and you are my best friend for life.<br><br>
+  <b>- From Caleb 🩸💜</b></p>
+  <button class="btn yes" onclick="celebrate()">Tap for Your Prize🎉</button>
+  <div class="footer">Made with love for Favour</div>
+  <div>The one and only ADA👑👑</div>
+</div>
+
+<script>
+function next(n){
+  for(let i=1;i<=5;i++) document.getElementById('page'+i).style.display='none';
+  document.getElementById('page'+n).style.display='block';
+  if(n===5) celebrate();
+}
+function moveNo(btn){
+  btn.style.position='fixed';
+  btn.style.left=Math.random()*60+'vw';
+  btn.style.top=Math.random()*60+'vh';
+  btn.innerText='Nope, try again 😂';
+}
+function celebrate(){
+  const emojis=['🖤','🎈','🩸','😍','❤️','💜','✨','⭐',];
+  for(let i=0;i<60;i++){
+    let s=document.createElement('div');
+    s.className='confetti';
+    s.innerText=emojis[Math.floor(Math.random()*emojis.length)];
+    s.style.left=Math.random()*100+'vw';
+    s.style.animationDelay=(Math.random()*1)+'s';
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),4000);
+  }
+}
+</script>
+</body>
+</html>
